@@ -2,27 +2,87 @@ Answer each question in a written format
 
 1. What does semantic HTML mean?
 
+Semantic elements like header, footer, sidebar, nav, etc. were introduced in HTML5.
+These HTML elements have the exact same properties as the good old DIV elements while having
+additional semantic or descriptive value which can be really helpful when using screenreaders or for accessibility in general.
+Semantic HTML elements make our HTML code more descriptive, better structured and more easily readable to humans. 
+
 2. What is the box model?
+
+CSS box model defines each HTML element as a rectangular box. By using various CSS properties we can define
+size, position or stylistic features of each element. Every element has content area, padding area, border and margin.
+Box-sizing property defines the model used to calculate total size (width or height) of specific element. 
+The default value used is content-box but that can make our job as developers a little bit harder because we need to calculate
+total size of our structural elements (including padding, border or margin) to make our designs "pixel perfect". 
+
+Recommended box-sizing value is border-box because it already already includes padding, border or margin values 
+in size of an element. It is used by default in various CSS frameworks like Bootstrap.
+
 
 3. What is the difference between IDs and Classes?
 
+ID are used to uniquely identify some html element while the same class attribute can be added to multiple elements.
+Also IDs have higher specificity so ID definitions overwrite definitions with lower specificity like class or ordinary element definitions.
+
 4. What does the z-index do?
+
+By using z-index property we can control the stack order of html elements. 
+The elements with higher z-index are stacked upon the elements with lower z-index.
+
+For example we can give higher z-index to a div element with that contains image with 
+the transparent background and put it over an element that has a nice background graphic.
+Then we can move the element which is positioned above and achieve interesting 
+effects like parallax or other popular animated effects.
+
 
 5. Summarize what the keyword 'this' is used for?
 
+This defines the execution context in which our javascript code operates in. 
+We can define value of this implicitly, explicitly (with bind, call or apply methods), with New constructor or with window object.
+
+
 6. What is a callback?
+
+A callback function is a function that is passed into another function as an argument to be invoked later inside of that function. 
+
 
 7. What is a closure?
 
+A closure is a function created inside another function which keeps access to the lexical scope of its containing function even after it is returned from the enclosing function.
+It's a common pattern in functional programming. 
+
+
 8. How does prototype work?
+
+Every object in javascript have a private prototype property which links to another object that is its prototype. If we follow this chain we will eventually reach the object with null as its prototype.
+This prototype chain is used for property lookup that don't exist on particular object. An object can inherit methods from its prototype. 
+
 
 9. What is MVC?
 
+MVC stands for Model-View-Controller - popular software architecture commonly used in web apps although it is getting out of fashion replaced by more modern component based architecture like used by react or vue.
+Web frameworks like Ruby On Rails or Angular were heavily centered on MVC approach. Model in MVC is how the data is stored, views are used to render UI and controllers can be described as a glue between Models and Views.  
+They are used to store app logic and data manipulation. 
+
+
 10. What is the component lifecycle?
+
+React components have various lifecycle hooks available that are triggered at specific points during the component life. 
+There are methods that get executed before the component is mounted to the DOM like componentWillMoun or after the component has been mounted
+like ComponentDidMount. We have method that gets executed before the component is being updated like componentWillUpdate \
+and method that gets executed just before the unmounting - componentWillUnmount.
+
 
 11. What is REST?
 
+REST is an acronym for Representational State Transfer. It is a protocol used to send data between various computers over the internet.
+It is based on Client-server communication model. 
+
 12. Name three ways of getting data from the URL using express
+
+With Express we can get data from request body, from URL query parameters and the third way I can't remember 
+although I know we've been talking about this in our review lecture few weeks ago. 
+
 
 create table users (
 id serial,
@@ -34,8 +94,16 @@ email varchar(255)
 
 -Get all users:
 
+SELECT * FROM users;
+
 -Create a new user with the name of 'your name' and an email of 'fake@fake.com':
+
+INSERT INTO users (name, email) VALUES ('Dino Mandic', 'fake@fake.com);
 
 -Update the newly created user's name to 'Bobby Boy':
 
+UPDATE users SET name = 'Bobby Boy' WHERE name = 'Dino Mandic'
+
 -Delete the newly updated user:
+
+DELETE FROM users WHERE name = 'Bobby Boy';
